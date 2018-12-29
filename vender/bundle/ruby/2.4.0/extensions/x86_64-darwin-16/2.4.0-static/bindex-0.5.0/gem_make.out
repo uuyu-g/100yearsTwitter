@@ -1,0 +1,15 @@
+current directory: /Users/yugo/Dropbox/アプリ制作/HyakunenTwitter/vender/bundle/ruby/2.4.0/gems/bindex-0.5.0/ext/bindex
+/Users/yugo/.rbenv/versions/2.4.1/bin/ruby -r ./siteconf20181228-81924-14hnr3d.rb extconf.rb
+creating Makefile
+
+current directory: /Users/yugo/Dropbox/アプリ制作/HyakunenTwitter/vender/bundle/ruby/2.4.0/gems/bindex-0.5.0/ext/bindex
+make "DESTDIR=" clean
+
+current directory: /Users/yugo/Dropbox/アプリ制作/HyakunenTwitter/vender/bundle/ruby/2.4.0/gems/bindex-0.5.0/ext/bindex
+make "DESTDIR="
+compiling cruby.c
+linking shared-object bindex/cruby.bundle
+
+current directory: /Users/yugo/Dropbox/アプリ制作/HyakunenTwitter/vender/bundle/ruby/2.4.0/gems/bindex-0.5.0/ext/bindex
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 cruby.bundle ./.gem.20181228-81924-dszhtl/bindex
