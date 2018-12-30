@@ -9,14 +9,20 @@ body {
   margin: 0px;
 }
 
-header {
+header a{
   color: #fff;
   background: #bbb;
   padding: 8px;
   font: 1.2em sans-serif;
 }
 
-header.home {
+
+header>a:hover{
+  color: #ddd;
+  transition: .1s;
+}
+
+header.home> {
   font: 3em sans-serif;
   text-align: center;
 }
@@ -95,4 +101,8 @@ font: 1em sans-serif;
 .log_btn:hover {
 	background: tomato;
 	color: white;
+}
+
+.past_date {
+  color: tomato;
 }
