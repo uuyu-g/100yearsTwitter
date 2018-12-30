@@ -1,0 +1,96 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+  background: #EBEBEB;
+  margin: 0px;
+}
+
+header {
+  color: #fff;
+  background: #bbb;
+  padding: 8px;
+  font: 1.2em sans-serif;
+}
+
+header.home {
+  font: 3em sans-serif;
+  text-align: center;
+}
+
+footer {
+  text-align: center;
+  color: #fff;
+}
+
+.tweet {
+max-width: 500px;
+width: 80%;
+margin: 10px auto;
+
+background: white;
+border-radius: 6px;
+}
+
+.tweet+.past {
+opacity: 0.5;
+position: relative;
+left: 20px;
+}
+
+.tweet_img>img {
+width: 100%;
+border-radius: 6px 6px 0 0;
+}
+
+.tweet_text {
+padding: 0.2em 2em;
+}
+
+.tweet_time {
+padding: 0.8em 1em;
+font-size: 12px;
+color: #999;
+text-align: right;
+}
+
+.tweet_year {
+color: tomato;
+font-weight: bold;
+}
+
+.create_tweet {
+padding: 10px;
+text-align: right;
+}
+
+.create_tweet>textarea {
+position: relative;
+margin: auto;
+padding: 10px;
+width: 100%;
+resize: vertical;
+border: 1px solid #ddd;
+border-radius: 6px 6px 0px 6px;
+}
+
+.log_btn {
+	position: relative;
+	display: inline-block;
+	margin-top: 4px;
+	font-weight: bold;
+	padding: 0.3em 2em;
+	text-decoration: none;
+	background: #eee;
+	color: tomato;
+	border-radius: 0px 0px 3px 3px;
+	transition: .1s;
+}
+
+.log_btn:hover {
+	background: tomato;
+	color: white;
+}
