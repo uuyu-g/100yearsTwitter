@@ -13,10 +13,10 @@
 	<% @posts.each do |post| %>
 	  <div class="tweet">
 			<div class="tweet_text">
-			<%= post.content %>
+			<p><%= post.content %></p>
 			</div>
 			<div class="tweet_time">
-			<%= post.created_at%>
+			<%= post.created_at.to_s(:stime) %>
 			</div>
     	</div>
 	<%end%>
