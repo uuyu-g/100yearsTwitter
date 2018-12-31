@@ -11,11 +11,18 @@
 	<%end%>
 </div>
 	<% @posts.each do |post| %>
-	  <div class="tweet">
+		<% if post.created_at < 1.day.ago %>
+	  	<div class="tweet past">
+		<% else%>
+		<div class="tweet">
+		<%end%>
 			<div class="tweet_text">
 			<p><%= post.content %></p>
 			</div>
 			<div class="tweet_time">
+			<% if post.created_at < 1.day.ago %>
+				<span class="past_date"><%= post.created_at.strftime("%Y") %></span>	
+			<%end%>
 			<%= post.created_at.to_s(:stime) %>
 			</div>
     	</div>
