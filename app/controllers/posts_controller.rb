@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.all.order(created_at: :desc) 
+    @posts = Post.all.sort_by{|post| post[:created_at].strftime('%X')}.reverse
   end
 
   def new
