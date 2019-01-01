@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
   def index
+    # Timecop.freeze(5.hours.ago)
+    Timecop.return
     posts1 = Post.created_today
     posts2 = Post.created_yesterday
     posts3 = Post.created_a_week_ago
@@ -7,10 +9,15 @@ class PostsController < ApplicationController
     posts5 = Post.created_a_year_ago
     @posts = posts1 + posts2 + posts3 + posts4 + posts5
     
-    @posts = @posts.sort_by{|post| post[:created_at].strftime('%X')}.reverse
-    @posts = @posts.select do |post|
-      post[:created_at].strftime('%X') <= Time.zone.now.strftime('%X')
-    end
+    #現在時間以前の投稿を抽出し、時間で降順にソート
+    @posts = @posts
+      .select do |post|
+        post[:created_at].strftime('%X') <= Time.zone.now.strftime('%X')
+      end
+      .sort_by do |post| 
+        post[:created_at].strftime('%X')
+      end.reverse
+    
   end
 
   def new
