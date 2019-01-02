@@ -1,30 +1,39 @@
 <main>
 	<div class="tweets">
 		<div class="tweet">
-	<%= form_tag("/posts/create") do %>
-	<div class="create_tweet">
-	
-		<textarea name="content" id="" rows="5"></textarea>
-		<input type="submit" value="Log" class="log_btn">
-
-	</div>
-	<%end%>
+		<%= form_tag("/posts/create") do %>
+			<div class="create_tweet">
+			 	<%# <div class="simplemde">
+					<textarea id="editor" name="content" rows="4"></textarea>
+					<link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+				<script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
+				<script>
+						var simplemde = new SimpleMDE({
+							element: document.getElementById("editor"),
+							spellChecker: false 
+						});
+				</script>
+				</div> %>
+				<textarea name="content" id="" rows="5"></textarea>
+				<input type="submit" value="Log" class="log_btn">
+			</div>
+		<%end%>
 </div>
 	<% @posts.each do |post| %>
 		<% if post.created_at < 1.day.ago %>
-	  	<div class="tweet past">
-		<% else%>
+	  <div class="tweet past">
+		<% else %>
 		<div class="tweet">
-		<%end%>
+		<% end %>
 			<div class="tweet_text">
-			<p><%= post.content %></p>
+			<%= simple_format(sanitize post.content) %>
 			</div>
 			<div class="tweet_time">
 			<% if post.created_at < 1.day.ago %>
 				<%# 昨日の、一週間前の、一ヶ月前の、一年前の %>
 				<span class="past_date"><%= time_ago_in_words_jp(post.created_at) + 'の'%></span>		
-			<%end%>
-			<%= post.created_at.to_s(:stime) %>
+			<% end %>
+			<%= post.created_at.to_s(:stime) %>			
 			</div>
     	</div>
 	<%end%>

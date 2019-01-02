@@ -9,10 +9,13 @@ body {
   margin: 0px;
 }
 
-header a{
-  color: #fff;
+header{
   background: #bbb;
   padding: 8px;
+}
+
+header a{
+  color: #fff;
   font: 1.2em sans-serif;
 }
 
@@ -39,6 +42,7 @@ margin: 10px auto;
 
 background: white;
 border-radius: 6px;
+font-size: 1.1em;
 }
 
 .tweet+.past {
@@ -54,6 +58,8 @@ border-radius: 6px 6px 0 0;
 
 .tweet_text {
 padding: 0.2em 2em;
+
+font-family: 'Noto Serif JP', serif;
 }
 
 .tweet_time {
@@ -82,6 +88,11 @@ resize: vertical;
 border: 1px solid #ddd;
 border-radius: 6px 6px 0px 6px;
 font: 1em sans-serif;
+text-align: left;
+}
+
+.simplemde {
+  text-align: left;
 }
 
 .log_btn {
@@ -95,7 +106,7 @@ font: 1em sans-serif;
 	background: #eee;
 	color: tomato;
 	border-radius: 0px 0px 3px 3px;
-	transition: .1s;
+  transition: .1s;
 }
 
 .log_btn:hover {
