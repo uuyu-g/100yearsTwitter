@@ -1,9 +1,10 @@
 <main>
 	<div class="tweets">
 		<div class="tweet">
-		<%= form_tag("/posts/create") do %>
-			<div class="create_tweet">
+		<%= form_tag("/posts/create", {multipart:true}) do %>
+			<div class="form create_tweet">
 				<textarea name="content" id="" rows="5"></textarea>
+				<input name="image" type="file">
 				<input type="submit" value="Log" class="log_btn">
 			</div>
 		<%end%>
