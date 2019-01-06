@@ -3,17 +3,6 @@
 		<div class="tweet">
 		<%= form_tag("/posts/create") do %>
 			<div class="create_tweet">
-			 	<%# <div class="simplemde">
-					<textarea id="editor" name="content" rows="4"></textarea>
-					<link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
-				<script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
-				<script>
-						var simplemde = new SimpleMDE({
-							element: document.getElementById("editor"),
-							spellChecker: false 
-						});
-				</script>
-				</div> %>
 				<textarea name="content" id="" rows="5"></textarea>
 				<input type="submit" value="Log" class="log_btn">
 			</div>
