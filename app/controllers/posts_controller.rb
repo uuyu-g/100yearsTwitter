@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   def index
     # Timecop.freeze(5.hours.ago)
-    Timecop.return
+    # Timecop.return
     posts1 = Post.created_today
     posts2 = Post.created_yesterday
     posts3 = Post.created_a_week_ago
