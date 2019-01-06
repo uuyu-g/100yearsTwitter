@@ -24,7 +24,15 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(content: params[:content])
+    @post = Post.new(content: params[:content], tweet_image: params[:image])
+    @post.save
+    if params[:image]
+      @post.tweet_image = "#{@post.id}.jpg"
+      image = Magick::ImageList.new(params[:image])
+      image.auto_orient!
+      image.strip!
+      File.binwrite("public/tweet_images/#{@post.tweet_image}", image.read)
+    end
     @post.save
     redirect_to("/posts/index")
   end
