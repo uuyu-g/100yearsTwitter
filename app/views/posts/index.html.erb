@@ -26,16 +26,17 @@
 		<div class="tweet">
 		<% end %>
 			<div class="tweet_text">
-			<%= simple_format(sanitize post.content) %>
+				<%= simple_format(sanitize post.content) %>
 			</div>
 			<div class="tweet_time">
-			<% if post.created_at < 1.day.ago %>
-				<%# 昨日の、一週間前の、一ヶ月前の、一年前の %>
-				<span class="past_date"><%= time_ago_in_words_jp(post.created_at) + 'の'%></span>		
-			<% end %>
-			<%= post.created_at.to_s(:stime) %>			
+				<% if post.created_at < 1.day.ago %>
+					<%# 昨日の、一週間前の、一ヶ月前の、一年前の %>
+					<span class="past_date"><%= time_ago_in_words_jp(post.created_at) + 'の'%></span>	
+				<% end %>
+				<%= post.created_at.to_s(:stime) %>			
 			</div>
-    	</div>
+    </div> 
+			
 	<%end%>
     </div>
 </main>
