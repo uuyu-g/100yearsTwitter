@@ -41,25 +41,26 @@ width: 80%;
 margin: 10px auto;
 
 background: white;
-border-radius: 6px;
+// border-radius: 6px;
 font-size: 1.1em;
 }
 
 .tweet+.past {
-opacity: 0.5;
+opacity: 0.7;
 position: relative;
-left: 20px;
+left: -20px;
 }
 
 .tweet_img>img {
 width: 100%;
-border-radius: 6px 6px 0 0;
+// border-radius: 6px 6px 0 0;
 }
 
 .tweet_text {
 padding: 0.2em 2em;
 
-font-family: 'Noto Serif JP', serif;
+// font-family: 'Noto Serif JP', serif;
+font-family: YuMincho, serif;
 }
 
 .tweet_time {
@@ -95,10 +96,61 @@ text-align: left;
   text-align: left;
 }
 
-.log_btn {
-	position: relative;
-	display: inline-block;
-	margin-top: 4px;
+.past_date {
+  color: tomato;
+}
+
+/* フォーム================================  progateからコピー*/
+.form {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: white;
+  box-shadow: 0 2px 6px #c1ced7;
+}
+
+.form-heading {
+  font-weight: 300;
+  margin: 60px 0 20px;
+  font-size: 48px;
+  color: #bcc8d4;
+}
+
+.form-body {
+  padding: 30px;
+}
+
+.form-error {
+  color: #ff4d75;
+}
+
+.form input {
+  width: 100%;
+  border: 1px solid #d8dadf;
+  padding: 10px;
+  color: #57575f;
+  font-size: 16px;
+  letter-spacing: 2px;
+  border-radius: 2px;
+}
+
+.form textarea {
+  width: 100%;
+  min-height: 110px;
+  font-size: 16px;
+  letter-spacing: 2px;
+}
+
+.form input[type="submit"] {
+  // background-color: #3ecdc6;
+  // color: white;
+  // cursor: pointer;
+  // font-weight: 300;
+  // width: 120px;
+  // border-radius: 2px;
+  // margin-top: 8px;
+  // margin-bottom: 0;
+  // float: right;
+  margin-top: 4px;
 	font-weight: bold;
 	font-size: 1em;
 	padding: 0.3em 2em;
@@ -109,11 +161,27 @@ text-align: left;
   transition: .1s;
 }
 
-.log_btn:hover {
+// .log_btn {
+// 	// position: relative;
+// 	// display: inline-block;
+// 	margin-top: 4px;
+// 	font-weight: bold;
+// 	font-size: 1em;
+// 	padding: 0.3em 2em;
+// 	text-decoration: none;
+// 	background: #eee;
+// 	color: tomato;
+// 	border-radius: 0px 0px 3px 3px;
+//   transition: .1s;
+// }
+
+.form input[type="submit"]:hover {
 	background: tomato;
 	color: white;
 }
 
-.past_date {
-  color: tomato;
+.form-body:after {
+  content: '';
+  display: table;
+  clear: both;
 }
