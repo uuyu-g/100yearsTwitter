@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   def index
     # Timecop.freeze(5.hours.ago)
-    Timecop.return
+    # Timecop.return
     posts1 = Post.created_today
     posts2 = Post.created_yesterday
     posts3 = Post.created_a_week_ago
@@ -25,6 +25,15 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(content: params[:content])
+    @post.save
+    if params[:image]
+      @post.tweet_image = "#{@post.id}.jpg"
+      image = params[:image]
+      image = Magick::Image.from_blob(image.read).shift
+      image.auto_orient!
+      image.strip!
+      image.write("public/tweet_images/#{@post.tweet_image}")
+    end
     @post.save
     redirect_to("/posts/index")
   end

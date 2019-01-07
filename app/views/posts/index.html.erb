@@ -10,14 +10,21 @@
 		<%end%>
 </div>
 	<% @posts.each do |post| %>
-		<% if post.created_at < 1.day.ago %>
+	<% if post.created_at < 1.day.ago %>
 	  <div class="tweet past">
-		<% else %>
+	<% else %>
 		<div class="tweet">
 		<% end %>
+		<% if post.tweet_image %>
+			<div class="tweet_img">
+				<img src="<%= "/tweet_images/#{post.tweet_image}" %>">
+			</div>
+		<% end %>
+		<% if post.content != "" %>
 			<div class="tweet_text">
 				<%= simple_format(sanitize post.content) %>
 			</div>
+		<% end %>
 			<div class="tweet_time">
 				<% if post.created_at < 1.day.ago %>
 					<%# 昨日の、一週間前の、一ヶ月前の、一年前の %>
