@@ -3,9 +3,11 @@
 		<div class="tweet">
 		<%= form_tag("/posts/create", {multipart:true}) do %>
 			<div class="form create_tweet">
-				<textarea name="content" id="" rows="5"></textarea>
+				<textarea name="content" rows="5" onkeydown="if(event.ctrlKey&&event.keyCode==13){document.getElementById('submit').click();return false};"></textarea>
 				<input name="image" type="file">
-				<input type="submit" value="Log" class="log_btn">
+				<div class="uploder">
+					<input type="submit" value="Log" class="log_btn" id="submit">
+				</div>
 			</div>
 		<%end%>
 </div>
