@@ -3,11 +3,15 @@
 		<div class="tweet">
 		<%= form_tag("/posts/create", {multipart:true}) do %>
 			<div class="form create_tweet">
+				<%# ctrl+enterで送信 %> 
 				<textarea name="content" rows="5" onkeydown="if(event.ctrlKey&&event.keyCode==13){document.getElementById('submit').click();return false};"></textarea>
-				<input name="image" type="file">
-				<div class="uploder">
-					<input type="submit" value="Log" class="log_btn" id="submit">
-				</div>
+				
+					<label class="uploder"><i class="fas fa-image"></i>
+						<input name="image" type="file">
+					</label>
+
+				<input type="submit" value="Log" class="log_btn" id="submit">
+
 			</div>
 		<%end%>
 </div>
