@@ -77,10 +77,10 @@ font-weight: bold;
 
 .create_tweet {
 padding: 10px;
-text-align: right;
+// text-align: right;
 }
 
-.create_tweet>textarea {
+.create_tweet textarea {
 position: relative;
 margin: auto;
 padding: 10px;
@@ -124,7 +124,7 @@ text-align: left;
 }
 
 .form input {
-  width: 100%;
+  // width: 100%;
   border: 1px solid #d8dadf;
   padding: 10px;
   color: #57575f;
@@ -150,7 +150,7 @@ text-align: left;
   // margin-top: 8px;
   // margin-bottom: 0;
   // float: right;
-  margin-top: 4px;
+  // margin-top: 4px;
 	font-weight: bold;
 	font-size: 1em;
 	padding: 0.3em 2em;
@@ -159,6 +159,7 @@ text-align: left;
 	color: tomato;
 	border-radius: 0px 0px 3px 3px;
   transition: .1s;
+  float: right;
 }
 
 // .log_btn {
@@ -177,11 +178,27 @@ text-align: left;
 
 .form input[type="submit"]:hover {
 	background: tomato;
-	color: white;
+  color: white;
+  cursor: pointer;
 }
 
 .form-body:after {
   content: '';
   display: table;
   clear: both;
+}
+
+.uploder input {
+  display: none;
+}
+
+.uploder{
+  font-size: 1.2em;
+  color: #555;
+  margin-left: 8px;
+}
+
+.uploder:hover {
+  cursor: pointer;
+  color: #333;
 }

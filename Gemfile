@@ -64,5 +64,6 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 #画像処理用のgem
-gem 'rmagick'
+# gem 'rmagick'
 
+gem 'mini_magick'

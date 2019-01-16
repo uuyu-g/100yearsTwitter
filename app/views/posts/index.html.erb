@@ -1,41 +1,42 @@
 <main>
 	<div class="tweets">
 		<div class="tweet">
-		<%= form_tag("/posts/create", {multipart:true}) do %>
 			<div class="form create_tweet">
+			<%= form_tag("/posts/create", {multipart:true}) do %>			
+				<%# ctrl+enterで送信 %>
 				<textarea name="content" rows="5" onkeydown="if(event.ctrlKey&&event.keyCode==13){document.getElementById('submit').click();return false};"></textarea>
-				<input name="image" type="file">
-				<div class="uploder">
-					<input type="submit" value="Log" class="log_btn" id="submit">
-				</div>
+
+				<label class="uploder"><i class="fas fa-image"></i>
+					<input name="image" type="file">
+				</label>
+
+				<input type="submit" value="Log" class="log_btn" id="submit">
+			<%end%>
 			</div>
-		<%end%>
-</div>
-	<% @posts.each do |post| %>
-	<% if post.created_at < 1.day.ago %>
-	  <div class="tweet past">
-	<% else %>
-		<div class="tweet">
-		<% end %>
-		<% if post.tweet_image %>
+
+		</div>
+		<% @posts.each do |post| %>
+		<div class="tweet <%=" #{'past' if post.created_at < 1.day.ago}" %>">
+			<% if post.tweet_image %>
 			<div class="tweet_img">
 				<img src="<%= "/tweet_images/#{post.tweet_image}" %>">
 			</div>
-		<% end %>
-		<% if post.content != "" %>
+			<% end %>
+			<% if post.content != "" %>
 			<div class="tweet_text">
 				<%= simple_format(sanitize post.content) %>
 			</div>
-		<% end %>
+			<% end %>
 			<div class="tweet_time">
 				<% if post.created_at < 1.day.ago %>
-					<%# 昨日の、一週間前の、一ヶ月前の、一年前の %>
-					<span class="past_date"><%= time_ago_in_words_jp(post.created_at) + 'の'%></span>	
+				<%# 昨日の、一週間前の、一ヶ月前の、一年前の %>
+				<span class="past_date">
+					<%= time_ago_in_words_jp(post.created_at) + 'の'%></span>
 				<% end %>
-				<%= post.created_at.to_s(:stime) %>			
+				<%= post.created_at.to_s(:stime) %>
 			</div>
-    </div> 
-			
-	<%end%>
-    </div>
+		</div>
+
+		<%end%>
+	</div>
 </main>

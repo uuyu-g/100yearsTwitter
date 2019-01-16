@@ -2,6 +2,7 @@ class PostsController < ApplicationController
   def index
     # Timecop.freeze(5.hours.ago)
     # Timecop.return
+    # スマートじゃないからリファクタリングしたい
     posts1 = Post.created_today
     posts2 = Post.created_yesterday
     posts3 = Post.created_a_week_ago
@@ -29,10 +30,12 @@ class PostsController < ApplicationController
     if params[:image]
       @post.tweet_image = "#{@post.id}.jpg"
       image = params[:image]
-      image = Magick::Image.from_blob(image.read).shift
-      image.auto_orient!
-      image.strip!
+      image = MiniMagick::Image.read(image)
+      image.auto_orient
+      image.resize "2048"
+      image.strip
       image.write("public/tweet_images/#{@post.tweet_image}")
+      # image.destroy!
     end
     @post.save
     redirect_to("/posts/index")
