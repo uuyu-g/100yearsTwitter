@@ -1,1 +1,1 @@
-require 'RMagick'
+require 'mini_magick'
