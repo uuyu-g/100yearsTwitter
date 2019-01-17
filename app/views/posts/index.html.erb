@@ -1,19 +1,18 @@
 <main>
 	<div class="tweets">
 		<div class="tweet">
+			<% if @current_user %>
 			<div class="form create_tweet">
-			<%= form_tag("/posts/create", {multipart:true}) do %>			
+				<%= form_tag("/posts/create", {multipart:true}) do %>
 				<%# ctrl+enterで送信 %>
 				<textarea name="content" rows="5" onkeydown="if(event.ctrlKey&&event.keyCode==13){document.getElementById('submit').click();return false};"></textarea>
-
 				<label class="uploder"><i class="fas fa-image"></i>
 					<input name="image" type="file">
 				</label>
-
 				<input type="submit" value="Log" class="log_btn" id="submit">
-			<%end%>
+				<%end%>
 			</div>
-
+			<% end %>
 		</div>
 		<% @posts.each do |post| %>
 		<div class="tweet <%=" #{'past' if post.created_at < 1.day.ago}" %>">
