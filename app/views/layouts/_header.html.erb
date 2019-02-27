@@ -1,0 +1,15 @@
+<header>
+	<div class="header-logo">
+		<%= link_to("100years Twitter","/")%>
+	</div>
+
+	<ul class="header-menus">
+	<% if @current_user %>
+		<li><%= @current_user.name %></li>
+		<li><%= link_to("ログアウト","/logout", {method: :post}) %></li>
+	<% else %>
+		<li><%= link_to("about", "/about") %></li>
+		<li><%= link_to("ログイン","/login")%></li>
+	<% end %>
+	</ul>
+</header>

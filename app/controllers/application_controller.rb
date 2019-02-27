@@ -10,7 +10,6 @@ class ApplicationController < ActionController::Base
 			flash[:notice] = "ログインが必要です"
 			redirect_to("/login")
 		end
-		
 	end
 
 	def forbid_login_user
